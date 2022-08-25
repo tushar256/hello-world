@@ -1,0 +1,67 @@
+spring:
+  profiles.active: '@active.profile@'
+  application:
+    name: hello-world
+
+server:
+  port : 9007
+  servlet:
+    context-path: /hello-world
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+    beans:
+      enabled: true
+
+ssl:
+  truststore_location: ${KEYSTORE_LOCATION}
+  truststore_password: ${KEYSTORE_PASSWORD}
+
+  keystore_location: ${KEYSTORE_LOCATION}
+  keystore_password: ${KEYSTORE_PASSWORD}
+  key_password: ${KEYSTORE_PASSWORD}
+
+mongo:
+  host: x
+  port: x
+  database: x
+  user: ${MONGO_USER}
+  password: ${MONGO_PWD}
+
+
+kafka:
+  bootstrapservers: x
+  producer:
+    topic: x
+  consumer:
+    topic: x
+    groupId: x
+
+sftp:
+  host: x
+  port: x
+  username: x
+  password: x
+  knowHostPublicKey: x
+  sftpfilepath : x
+  downloaddir: x
+
+# Please make sure you configure the connector properties, ssl properties before turning on the connector
+connector:
+  enable:
+    mongo: false
+    kafka_producer: false
+    kafka_consumer: false
+    sftp: false
+
+
+
+# Set this property to true if you want to enable logging to MongoDB and also make sure mongo connector is enabled
+auditing:
+  enable: false
