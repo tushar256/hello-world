@@ -33,13 +33,13 @@ import static org.springframework.nativex.hint.TypeAccess.QUERY_PUBLIC_METHODS;
 
 
 
+@JdkProxyHint(types= { BeanPostProcessor.class, BeanFactoryAware.class, BeanClassLoaderAware.class,
+        ApplicationContextAware.class, EnvironmentCapable.class, EnvironmentAware.class, Servlet.class, ServletConfig.class, Serializable.class})
 @NativeHint(
         types = {
-                @TypeHint(types = {OrderedRequestContextFilter.class},access = {PUBLIC_METHODS, QUERY_PUBLIC_METHODS}),
-                @TypeHint(types = Servlet.class, access = {}),
-                @TypeHint(types = ConfigurableWebApplicationContext.class, access = {}),
-                @TypeHint(types = RequestContextFilter.class, access = {PUBLIC_METHODS, QUERY_PUBLIC_METHODS}),
 
+                @TypeHint(types = {BeanPostProcessor.class, BeanFactoryAware.class, BeanClassLoaderAware.class, ApplicationContextAware.class, EnvironmentCapable.class, EnvironmentAware.class, Servlet.class, ServletConfig.class, Serializable.class},
+                        access = {TypeAccess.PUBLIC_CONSTRUCTORS, PUBLIC_METHODS}),
                 @TypeHint(types = {ConsoleAppender.class, SizeAndTimeBasedRollingPolicy.class, PatternLayout.class, RollingFileAppender.class, PatternLayoutEncoder.class},
                             access = {TypeAccess.PUBLIC_CONSTRUCTORS, PUBLIC_METHODS})
 
