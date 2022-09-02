@@ -1,6 +1,9 @@
 spring:
   application:
     name: hello-world
+  sleuth:
+    async:
+      enabled: false
 
 server:
   port : 9007
@@ -20,19 +23,19 @@ management:
 
 
 ssl:
-  truststore_location: ${KEYSTORE_LOCATION}
-  truststore_password: ${KEYSTORE_PASSWORD}
+  truststore_location: ${project.basedir}/selfsignedcertificate.p12
+  truststore_password: changeit
 
-  keystore_location: ${KEYSTORE_LOCATION}
-  keystore_password: ${KEYSTORE_PASSWORD}
-  key_password: ${KEYSTORE_PASSWORD}
+  keystore_location: ${project.basedir}/selfsignedcertificate.p12
+  keystore_password: changeit
+  key_password: changeit
 
 mongo:
   host: localhost
   port: 27017
   database: test
-  user: ${MONGO_USER}
-  password: ${MONGO_PWD}
+  user: someuser
+  password: somepassword
 
 
 kafka:
@@ -40,8 +43,8 @@ kafka:
   producer:
     topic: x
   consumer:
-    topic: x
-    groupId: x
+    topic: xx
+    groupId: xx
 
 sftp:
   host: x

@@ -1,5 +1,5 @@
 spring:
-  profiles.active: '@active.profile@'
+  profiles.active: 'UAT'
   application:
     name: hello-world
 
